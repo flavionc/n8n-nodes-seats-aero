@@ -63,6 +63,7 @@ export class SeatsAero implements INodeType {
                 ],
               },
             },
+												action: 'Get cached search results',
           },
         ],
         default: 'getCachedSearch',
@@ -88,7 +89,6 @@ export class SeatsAero implements INodeType {
         name: 'cabin',
         type: 'options',
         hint: 'Results must have this cabin available when specified',
-        required: false,
         options: [
           { name: 'Economy', value: 'economy' },
           { name: 'Premium', value: 'premium' },
@@ -101,7 +101,6 @@ export class SeatsAero implements INodeType {
         displayName: 'Start Date',
         name: 'start_date',
         type: 'dateTime',
-        required: false,
         default: '',
         description: 'Start date in YYYY-MM-DD format',
       },
@@ -109,7 +108,6 @@ export class SeatsAero implements INodeType {
         displayName: 'End Date',
         name: 'end_date',
         type: 'dateTime',
-        required: false,
         default: '',
         description: 'End date in YYYY-MM-DD format',
       },
@@ -117,7 +115,6 @@ export class SeatsAero implements INodeType {
         displayName: 'Cursor',
         name: 'cursor',
         type: 'number',
-        required: false,
         default: '',
         displayOptions: {
           show: {
@@ -129,7 +126,6 @@ export class SeatsAero implements INodeType {
         displayName: 'Take',
         name: 'take',
         type: 'number',
-        required: false,
         default: '',
         description: 'Number of results to return (min: 10, max: 1000)',
         typeOptions: {
@@ -146,7 +142,6 @@ export class SeatsAero implements INodeType {
         displayName: 'Order By',
         name: 'order_by',
         type: 'options',
-        required: false,
         default: 'departure_date',
         options: [
           { name: 'Departure Date', value: 'departure_date' },
@@ -163,7 +158,6 @@ export class SeatsAero implements INodeType {
         name: 'skip',
         type: 'number',
         hint: 'How many results to skip',
-        required: false,
         default: '',
         displayOptions: {
           show: {

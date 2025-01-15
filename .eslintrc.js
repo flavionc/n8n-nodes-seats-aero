@@ -2,10 +2,10 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'n8n-nodes-base'],
-  extends: [
+    extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:n8n-nodes-base/eslint-plugin-nodes-base',
+    'plugin:n8n-nodes-base/nodes',
   ],
   rules: {
     'n8n-nodes-base/node-class-description-name-miscased': 'off',
