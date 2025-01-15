@@ -1,64 +1,41 @@
 # n8n-nodes-seats-aero
 
-Community node for integrating Seats.aero with n8n
+![n8n.io - Workflow Automation](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png)
 
-## Installation
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-1. Clone the repository:
-```bash
-git clone https://github.com/flavionc/n8n-nodes-seats-aero.git
-cd n8n-nodes-seats-aero
-```
+This repository contains an n8n community node for integrating with Seats.aero.
 
-2. Install dependencies:
-```bash
-npm install
-```
+## Instalação e Configuração
 
-3. Build the project:
-```bash
-npm run build
-```
+Follow the installation instructions for [n8n community nodes](https://docs.n8n.io/integrations/community-nodes/installation/).
 
-4. Link the package locally:
-```bash
-npm link
-```
+## Uso
 
-5. In your n8n installation directory:
-```bash
-npm link n8n-nodes-seats-aero
-```
+### Credenciais
+1. Adicione as credenciais da API Seats.aero.
+2. Insira sua chave de API.
 
-6. Restart n8n
+### Nós
+- **Obter Voos Disponíveis**: Pesquise voos disponíveis entre dois aeroportos.
+- **Obter Detalhes do Voo**: Obtenha informações detalhadas sobre um voo específico.
+- **Obter Aeroportos**: Liste todos os aeroportos disponíveis.
+- **Obter Configuração da API**: Obtenha a configuração e limites da API.
 
-## Usage
+## Resources
 
-### Credentials
-1. Add Seats.aero API credentials
-2. Enter your API key
-
-### Nodes
-- **Get Available Flights**: Search for available flights between two airports
-- **Get Flight Details**: Get detailed information about a specific flight
-- **Get Airports**: List all available airports
-- **Get API Configuration**: Get API configuration and limits
-
-## Examples
-
-### Get Available Flights
-1. Add Seats.aero node
-2. Select "Get Available Flights" operation
-3. Enter origin and destination airport codes (e.g. GRU, JFK)
-4. Execute the workflow
+* [Documentation](https://docs.n8n.io/integrations/community-nodes/)
+* [n8n community](https://community.n8n.io)
+* [Seats.aero API Documentation](https://docs.seats.aero/)
 
 ## Contributing
 
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Submit a pull request
+To contribute to n8n-nodes-seats-aero, fork the repository and create a pull request.
+
+Please make sure to follow our [Code of Conduct](https://github.com/n8n-io/n8n/blob/master/CODE_OF_CONDUCT.md) and [Contribution Guidelines](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md).
 
 ## License
 
-MIT
+n8n is [fair-code](http://faircode.io) distributed under the [**Sustainable Use License**](https://github.com/n8n-io/n8n/blob/master/LICENSE.md).
+
+Additional information about the license can be found in the [FAQ](https://docs.n8n.io/reference/license/#faq).
