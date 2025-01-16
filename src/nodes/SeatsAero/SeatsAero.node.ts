@@ -1,18 +1,18 @@
-import { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import { INodeType, INodeTypeDescription, NodeConnectionType } from 'n8n-workflow';
 
 export class SeatsAero implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Seats.aero',
     name: 'seatsAero',
-    icon: 'file:seatsAero.svg',
+    icon: 'file:logo-seats-aero.svg',
     group: ['transform'],
     version: 1,
     description: 'Interact with Seats.aero API',
     defaults: {
       name: 'Seats.aero',
     },
-    inputs: ['main'],
-    outputs: ['main'],
+    inputs: ['main' as NodeConnectionType],
+    outputs: ['main' as NodeConnectionType],
     credentials: [
       {
         name: 'seatsAeroApi',
@@ -115,7 +115,7 @@ export class SeatsAero implements INodeType {
         displayName: 'Cursor',
         name: 'cursor',
         type: 'number',
-        default: '',
+        default: undefined,
         displayOptions: {
           show: {
             operation: ['getCachedSearch'],
@@ -126,7 +126,7 @@ export class SeatsAero implements INodeType {
         displayName: 'Take',
         name: 'take',
         type: 'number',
-        default: '',
+        default: undefined,
         description: 'Number of results to return (min: 10, max: 1000)',
         typeOptions: {
           minValue: 10,
@@ -158,7 +158,7 @@ export class SeatsAero implements INodeType {
         name: 'skip',
         type: 'number',
         hint: 'How many results to skip',
-        default: '',
+        default: undefined,
         displayOptions: {
           show: {
             operation: ['getCachedSearch'],
