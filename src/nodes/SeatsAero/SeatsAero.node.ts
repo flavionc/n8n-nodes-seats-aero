@@ -63,7 +63,40 @@ export class SeatsAero implements INodeType {
                 ],
               },
             },
-												action: 'Get cached search results',
+            action: 'Get cached search results',
+          },
+          {
+            name: 'Bulk Availability',
+            value: 'bulkAvailability',
+            description: 'Retrieve a large amount of availability objects from one specific mileage program',
+            routing: {
+              request: {
+                method: 'GET',
+                url: '/availability',
+                qs: {
+                  source: '={{$parameter["source"]}}',
+                  cabin: '={{$parameter["cabin"]}}',
+                  start_date: '={{$parameter["start_date"].split("T")[0]}}',
+                  end_date: '={{$parameter["end_date"].split("T")[0]}}',
+                  origin_region: '={{$parameter["origin_region"]}}',
+                  destination_region: '={{$parameter["destination_region"]}}',
+                  take: '={{$parameter["take"]}}',
+                  cursor: '={{$parameter["cursor"]}}',
+                  skip: '={{$parameter["skip"]}}',
+                },
+              },
+              output: {
+                postReceive: [
+                  {
+                    type: 'set',
+                    properties: {
+                      value: '={{ { "success": true, "data": $response.body } }}'
+                    }
+                  }
+                ],
+              },
+            },
+            action: 'Get bulk availability',
           },
         ],
         default: 'getCachedSearch',
@@ -75,6 +108,11 @@ export class SeatsAero implements INodeType {
         hint: 'A list of origin airports. Comma-delimited if multiple, such as "SFO,LAX"',
         required: true,
         default: '',
+        displayOptions: {
+          show: {
+            operation: ['getCachedSearch'],
+          },
+        }
       },
       {
         displayName: 'Destination Airport',
@@ -83,6 +121,23 @@ export class SeatsAero implements INodeType {
         hint: 'A list of destination airports. Comma-delimited if multiple, such as "FRA,LHR"',
         required: true,
         default: '',
+        displayOptions: {
+          show: {
+            operation: ['getCachedSearch'],
+          },
+        }
+      },
+      {
+        displayName: 'Mileage Program',
+        name: 'source',
+        type: 'string',
+        required: true,
+        default: '',
+        displayOptions: {
+          show: {
+            operation: ['bulkAvailability'],
+          },
+        },
       },
       {
         displayName: 'Cabin',
@@ -96,6 +151,11 @@ export class SeatsAero implements INodeType {
           { name: 'First', value: 'first' },
         ],
         default: 'economy',
+        displayOptions: {
+          show: {
+            operation: ['getCachedSearch', 'bulkAvailability'],
+          },
+        }
       },
       {
         displayName: 'Start Date',
@@ -112,13 +172,51 @@ export class SeatsAero implements INodeType {
         description: 'End date in YYYY-MM-DD format',
       },
       {
+        displayName: 'Origin Region',
+        name: 'origin_region',
+        type: 'options',
+        options: [
+          { name: 'North America', value: 'North America' },
+          { name: 'South America', value: 'South America' },
+          { name: 'Africa', value: 'Africa' },
+          { name: 'Asia', value: 'Asia' },
+          { name: 'Europe', value: 'Europe' },
+          { name: 'Oceania', value: 'Oceania' },
+        ],
+        default: '',
+        displayOptions: {
+          show: {
+            operation: ['bulkAvailability'],
+          },
+        },
+      },
+      {
+        displayName: 'Destination Region',
+        name: 'destination_region',
+        type: 'options',
+        options: [
+          { name: 'North America', value: 'North America' },
+          { name: 'South America', value: 'South America' },
+          { name: 'Africa', value: 'Africa' },
+          { name: 'Asia', value: 'Asia' },
+          { name: 'Europe', value: 'Europe' },
+          { name: 'Oceania', value: 'Oceania' },
+        ],
+        default: '',
+        displayOptions: {
+          show: {
+            operation: ['bulkAvailability'],
+          },
+        },
+      },
+      {
         displayName: 'Cursor',
         name: 'cursor',
         type: 'number',
         default: undefined,
         displayOptions: {
           show: {
-            operation: ['getCachedSearch'],
+            operation: ['getCachedSearch', 'bulkAvailability'],
           },
         },
       },
@@ -134,7 +232,7 @@ export class SeatsAero implements INodeType {
         },
         displayOptions: {
           show: {
-            operation: ['getCachedSearch'],
+            operation: ['getCachedSearch', 'bulkAvailability'],
           },
         },
       },
@@ -161,10 +259,10 @@ export class SeatsAero implements INodeType {
         default: undefined,
         displayOptions: {
           show: {
-            operation: ['getCachedSearch'],
+            operation: ['getCachedSearch', 'bulkAvailability'],
           },
         },
-      },
+      }
     ],
   };
 }
