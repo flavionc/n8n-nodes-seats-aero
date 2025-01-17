@@ -66,6 +66,28 @@ export class SeatsAero implements INodeType {
             action: 'Get cached search results',
           },
           {
+            name: 'Get Trips',
+            value: 'getTrips',
+            description: 'Get flight-level information from availability object',
+            action: 'Get flight-level information from availability object',
+            routing: {
+              request: {
+                method: 'GET',
+                url: '=/trips/{{$parameter["id"]}}',
+              },
+              output: {
+                postReceive: [
+                  {
+                    type: 'set',
+                    properties: {
+                      value: '={{ { "success": true, "data": $response.body } }}'
+                    }
+                  }
+                ],
+              },
+            },
+          },
+          {
             name: 'Bulk Availability',
             value: 'bulkAvailability',
             description: 'Retrieve a large amount of availability objects from one specific mileage program',
@@ -162,6 +184,11 @@ export class SeatsAero implements INodeType {
         name: 'start_date',
         type: 'dateTime',
         default: '',
+        displayOptions: {
+          show: {
+            operation: ['getCachedSearch', 'bulkAvailability'],
+          },
+        },
         description: 'Start date in YYYY-MM-DD format',
       },
       {
@@ -169,6 +196,11 @@ export class SeatsAero implements INodeType {
         name: 'end_date',
         type: 'dateTime',
         default: '',
+        displayOptions: {
+          show: {
+            operation: ['getCachedSearch', 'bulkAvailability'],
+          },
+        },
         description: 'End date in YYYY-MM-DD format',
       },
       {
@@ -176,14 +208,14 @@ export class SeatsAero implements INodeType {
         name: 'origin_region',
         type: 'options',
         options: [
-          { name: 'North America', value: 'North America' },
-          { name: 'South America', value: 'South America' },
           { name: 'Africa', value: 'Africa' },
           { name: 'Asia', value: 'Asia' },
           { name: 'Europe', value: 'Europe' },
+          { name: 'North America', value: 'North America' },
           { name: 'Oceania', value: 'Oceania' },
+          { name: 'South America', value: 'South America' },
         ],
-        default: '',
+        default: 'North America',
         displayOptions: {
           show: {
             operation: ['bulkAvailability'],
@@ -195,14 +227,14 @@ export class SeatsAero implements INodeType {
         name: 'destination_region',
         type: 'options',
         options: [
-          { name: 'North America', value: 'North America' },
-          { name: 'South America', value: 'South America' },
           { name: 'Africa', value: 'Africa' },
           { name: 'Asia', value: 'Asia' },
           { name: 'Europe', value: 'Europe' },
+          { name: 'North America', value: 'North America' },
           { name: 'Oceania', value: 'Oceania' },
+          { name: 'South America', value: 'South America' },
         ],
-        default: '',
+        default: 'North America',
         displayOptions: {
           show: {
             operation: ['bulkAvailability'],
@@ -260,6 +292,18 @@ export class SeatsAero implements INodeType {
         displayOptions: {
           show: {
             operation: ['getCachedSearch', 'bulkAvailability'],
+          },
+        },
+      },
+      {
+        displayName: 'Trip ID',
+        name: 'id',
+        type: 'string',
+        required: true,
+        default: '',
+        displayOptions: {
+          show: {
+            operation: ['getTrips'],
           },
         },
       }
