@@ -3,9 +3,23 @@
 | ![n8n.io - Workflow Automation](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png) | ![Seats.aero Logo](src/nodes/SeatsAero/logo-seats-aero.svg) |
 |:---:|:---:|
 
-[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
+## About this Community Node
 
-This repository contains an n8n community node for integrating with Seats.aero.
+This repository contains an n8n community node for integrating with Seats.aero's API. The node enables automation of flight search and availability monitoring workflows, including:
+
+- Searching for available award seats
+- Monitoring specific routes and availability
+- Integrating flight data with other n8n workflows
+- Retrieving detailed flight and loyalty program information
+
+## About Seats.aero
+
+[Seats.aero](https://seats.aero/) is a powerful flight search engine that helps users find available award seats across multiple airlines and alliances. Key features include:
+
+- Comprehensive search across multiple airlines and alliances
+- Real-time availability of award seats
+- Advanced filtering and sorting options
+- Integration with major loyalty programs
 
 ## Installation and Configuration
 
