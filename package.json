@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-seats-aero",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "n8n community node for seats.aero integration",
   "keywords": [
     "n8n-community-node-package"

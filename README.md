@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: left; align-items: center; gap: 20px;">
-  <img src="https://docs.n8n.io/_images/n8n-docs-icon.svg" width="100" alt="n8n logo">
-  <img src="src/nodes/SeatsAero/logo-seats-aero.svg" width="100" alt="Seats.aero logo">
+  <img src="./dist/logo-n8n.svg" width="100" alt="n8n logo">
+  <img src="dist/nodes/SeatsAero/logo-seats-aero.svg" width="100" alt="Seats.aero logo">
 </div>
 
 # n8n-nodes-seats-aero
