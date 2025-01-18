@@ -28,6 +28,8 @@ Follow the installation instructions for [n8n community nodes](https://docs.n8n.
 * [Documentation](https://docs.n8n.io/integrations/community-nodes/)
 * [n8n community](https://community.n8n.io)
 * [Seats.aero API Documentation](https://docs.seats.aero/)
+* [Author's LinkedIn](https://www.linkedin.com/in/flavio-nc/)
+* [Artificial Valley Community](https://chat.whatsapp.com/DHDGIcVPVcz8ApmthWXOLV)
 
 ## 🤝 Contribution
 Contribute to the growth of this project! You can help in several ways:
