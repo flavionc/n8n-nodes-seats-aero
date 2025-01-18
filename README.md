@@ -1,9 +1,9 @@
+<div style="display: flex; justify-content: left; align-items: center; gap: 20px;">
+  <img src="https://docs.n8n.io/_images/n8n-docs-icon.svg" width="100" alt="n8n logo">
+  <img src="src/nodes/SeatsAero/logo-seats-aero.svg" width="100" alt="Seats.aero logo">
+</div>
+
 # n8n-nodes-seats-aero
-
-| ![n8n.io - Workflow Automation](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png) | ![Seats.aero Logo](src/nodes/SeatsAero/logo-seats-aero.svg) |
-|:---:|:---:|
-
-## About this Community Node
 
 This repository contains an n8n community node for integrating with Seats.aero's API. The node enables automation of flight search and availability monitoring workflows, including:
 
