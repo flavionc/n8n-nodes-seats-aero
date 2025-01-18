@@ -23,7 +23,19 @@ This repository contains an n8n community node for integrating with Seats.aero's
 
 ## Installation and Configuration
 
-Follow the installation instructions for [n8n community nodes](https://docs.n8n.io/integrations/community-nodes/installation/).
+### Community Nodes (Recommended)
+1. Go to Settings > Community Nodes
+2. Select Install
+3. Enter `n8n-nodes-seats-aero` in "Enter npm package name" field
+4. Agree to the risks of using community nodes: select "I understand the risks of installing unverified code from a public source"
+5. Select Install
+
+### Manual installation
+To get started install the package in your n8n root directory:
+
+```bash
+npm install n8n-nodes-seats-aero
+```
 
 ## Usage
 
